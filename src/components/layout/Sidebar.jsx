@@ -15,11 +15,8 @@ const Sidebar = ({ isMobile, setIsMobile }) => {
 
   const navItems = [
     { title: 'Dashboard', icon: <FiHome className="w-5 h-5" />, path: '/' },
-    { title: 'Restaurants', icon: <FiShoppingBag className="w-5 h-5" />, path: '/users' },
-    { title: 'Analytics', icon: <FiPieChart className="w-5 h-5" />, path: '/analytics' },
     { title: 'Locations', icon: <FiMapPin className="w-5 h-5" />, path: '/locations' },
     { title: 'Reviews', icon: <FiStar className="w-5 h-5" />, path: '/reviews' },
-    { title: 'Settings', icon: <FiSettings className="w-5 h-5" />, path: '/settings' },
   ];
 
   return (
