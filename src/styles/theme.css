@@ -1,12 +1,13 @@
-/* Theme variables for customization */
+/* Theme variables for customization - Swiggy colors */
 :root {
-  --primary-color: #3B82F6; /* Default blue */
-  --primary-color-light: #93C5FD;
-  --primary-color-dark: #1E40AF;
-  --success-color: #10B981;
+  --primary-color: #FC8019; /* Swiggy Orange */
+  --primary-color-light: #FFA559;
+  --primary-color-dark: #E26310;
+  --secondary-color: #60B246; /* Swiggy Green */
+  --success-color: #60B246;
   --warning-color: #F59E0B;
   --danger-color: #EF4444;
-  --info-color: #6366F1;
+  --info-color: #3B82F6;
 }
 
 /* Apply theme variables to Tailwind classes */

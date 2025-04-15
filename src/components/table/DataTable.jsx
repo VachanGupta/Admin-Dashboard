@@ -44,6 +44,9 @@ const DataTable = ({ data: initialData, columns, title, onEdit, onDelete }) => {
     const lowercasedFilter = searchTerm.toLowerCase();
     const filtered = data.filter(item => {
       return Object.keys(item).some(key => {
+        // Only search in columns that are displayed in the table
+        if (!columns.some(col => col.key === key)) return false;
+        
         const value = item[key];
         if (value === null || value === undefined) return false;
         
@@ -52,13 +55,9 @@ const DataTable = ({ data: initialData, columns, title, onEdit, onDelete }) => {
         return valueStr.includes(lowercasedFilter);
       });
     });
-
-    // Debug log to verify filtering is working
-    console.log('Search term:', searchTerm);
-    console.log('Filtered data:', filtered);
     
     setFilteredData(filtered);
-  }, [searchTerm, data]);
+  }, [searchTerm, data, columns]);
 
   // Get sort direction icon
   const getSortDirectionIcon = (columnName) => {

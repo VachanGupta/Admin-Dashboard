@@ -5,6 +5,8 @@ import Dashboard from './pages/Dashboard';
 import Users from './pages/Users';
 import Analytics from './pages/Analytics';
 import Settings from './pages/Settings';
+import Locations from './pages/Locations';
+import Reviews from './pages/Reviews';
 
 const App = () => {
   return (
@@ -14,6 +16,8 @@ const App = () => {
           <Route path="/" element={<Dashboard />} />
           <Route path="/users" element={<Users />} />
           <Route path="/analytics" element={<Analytics />} />
+          <Route path="/locations" element={<Locations />} />
+          <Route path="/reviews" element={<Reviews />} />
           <Route path="/settings" element={<Settings />} />
         </Routes>
       </Layout>

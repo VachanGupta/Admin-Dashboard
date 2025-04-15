@@ -5,7 +5,6 @@ import {
 } from 'recharts';
 
 const Analytics = () => {
-  // Sample data for charts
   const monthlyData = [
     { name: 'Jan', sales: 4000, visitors: 2400 },
     { name: 'Feb', sales: 3000, visitors: 1398 },

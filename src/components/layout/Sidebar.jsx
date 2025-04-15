@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { FiHome, FiUsers, FiSettings, FiPieChart, FiMenu, FiX } from 'react-icons/fi';
+import { FiHome, FiUsers, FiSettings, FiPieChart, FiMenu, FiX, FiShoppingBag, FiMapPin, FiStar } from 'react-icons/fi';
 
 const Sidebar = ({ isMobile, setIsMobile }) => {
   const [isOpen, setIsOpen] = useState(true);
@@ -15,8 +15,10 @@ const Sidebar = ({ isMobile, setIsMobile }) => {
 
   const navItems = [
     { title: 'Dashboard', icon: <FiHome className="w-5 h-5" />, path: '/' },
-    { title: 'Users', icon: <FiUsers className="w-5 h-5" />, path: '/users' },
+    { title: 'Restaurants', icon: <FiShoppingBag className="w-5 h-5" />, path: '/users' },
     { title: 'Analytics', icon: <FiPieChart className="w-5 h-5" />, path: '/analytics' },
+    { title: 'Locations', icon: <FiMapPin className="w-5 h-5" />, path: '/locations' },
+    { title: 'Reviews', icon: <FiStar className="w-5 h-5" />, path: '/reviews' },
     { title: 'Settings', icon: <FiSettings className="w-5 h-5" />, path: '/settings' },
   ];
 
@@ -38,7 +40,7 @@ const Sidebar = ({ isMobile, setIsMobile }) => {
         <div className="fixed inset-y-0 left-0 max-w-xs w-full bg-white dark:bg-gray-800 shadow-xl transition-transform duration-300 ease-in-out transform ${isMobile ? 'translate-x-0' : '-translate-x-full'}">
           <div className="flex flex-col h-full">
             <div className="flex items-center justify-between px-4 py-6 border-b dark:border-gray-700">
-              <h2 className="text-xl font-bold text-gray-800 dark:text-white">Admin Dashboard</h2>
+              <h2 className="text-xl font-bold text-gray-800 dark:text-white">Swiggy Restaurant Manager</h2>
               <button
                 type="button"
                 className="text-gray-500 hover:text-gray-700 dark:text-gray-300 dark:hover:text-white"
