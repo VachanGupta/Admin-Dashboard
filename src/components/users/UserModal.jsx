@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import Modal from 'react-modal';
 import { FiX } from 'react-icons/fi';
 
-// Set the app element for accessibility
 Modal.setAppElement('#root');
 
 const UserModal = ({ isOpen, onClose, onSave, user }) => {
@@ -13,12 +12,10 @@ const UserModal = ({ isOpen, onClose, onSave, user }) => {
     status: 'Active'
   });
 
-  // Update form data when editing a user
   useEffect(() => {
     if (user) {
       setFormData(user);
     } else {
-      // Reset form when adding a new user
       setFormData({
         name: '',
         email: '',

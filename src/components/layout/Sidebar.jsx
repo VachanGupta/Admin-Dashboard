@@ -21,7 +21,6 @@ const Sidebar = ({ isMobile, setIsMobile }) => {
 
   return (
     <>
-      {/* Mobile menu button */}
       <button
         type="button"
         className="md:hidden fixed top-4 left-4 z-50 p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
@@ -30,7 +29,6 @@ const Sidebar = ({ isMobile, setIsMobile }) => {
         {isMobile ? <FiX className="h-6 w-6" /> : <FiMenu className="h-6 w-6" />}
       </button>
 
-      {/* Sidebar for mobile */}
       <div
         className={`md:hidden fixed inset-0 z-40 bg-gray-800 bg-opacity-75 transition-opacity ${isMobile ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}
       >
@@ -63,7 +61,6 @@ const Sidebar = ({ isMobile, setIsMobile }) => {
         </div>
       </div>
 
-      {/* Sidebar for desktop */}
       <aside
         className={`hidden md:flex flex-col h-screen ${isOpen ? 'w-64' : 'w-20'} bg-white dark:bg-gray-800 border-r dark:border-gray-700 transition-all duration-300 ease-in-out`}
       >

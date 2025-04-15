@@ -3,7 +3,7 @@ import { FiSettings, FiX } from 'react-icons/fi';
 
 const ThemeCustomizer = ({ isDarkMode, toggleDarkMode }) => {
   const [isOpen, setIsOpen] = useState(false);
-  const [primaryColor, setPrimaryColor] = useState('#3B82F6'); // Default blue
+  const [primaryColor, setPrimaryColor] = useState('#3B82F6');
 
   const colors = [
     { name: 'Blue', value: '#3B82F6' },
@@ -16,37 +16,31 @@ const ThemeCustomizer = ({ isDarkMode, toggleDarkMode }) => {
 
   const handleColorChange = (color) => {
     setPrimaryColor(color);
-    // Apply the color to CSS variables
     document.documentElement.style.setProperty('--primary-color', color);
     
-    // Also update the derived colors for consistency
-    const lighterColor = color + '33'; // Adding 33 for 20% opacity
+    const lighterColor = color + '33';
     document.documentElement.style.setProperty('--primary-color-light', lighterColor);
     
-    // Update the darker shade for hover states
     const darkerColor = adjustColorBrightness(color, -20);
     document.documentElement.style.setProperty('--primary-color-dark', darkerColor);
   };
   
-  // Helper function to darken a color for hover states
   const adjustColorBrightness = (hex, percent) => {
-    // Convert hex to RGB
     let r = parseInt(hex.substring(1, 3), 16);
     let g = parseInt(hex.substring(3, 5), 16);
     let b = parseInt(hex.substring(5, 7), 16);
     
-    // Adjust brightness
     r = Math.max(0, Math.min(255, r + percent));
     g = Math.max(0, Math.min(255, g + percent));
     b = Math.max(0, Math.min(255, b + percent));
     
-    // Convert back to hex
+    return `#${((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1)}`;
     return `#${((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1)}`;
   };
 
   return (
     <div className="fixed right-4 bottom-4 z-50">
-      {/* Theme customizer button */}
+
       <button
         onClick={() => setIsOpen(!isOpen)}
         className="p-3 rounded-full bg-white dark:bg-gray-800 shadow-lg text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary"
@@ -54,7 +48,7 @@ const ThemeCustomizer = ({ isDarkMode, toggleDarkMode }) => {
         <FiSettings className="h-6 w-6" />
       </button>
 
-      {/* Theme customizer panel */}
+
       <div className={`fixed inset-y-0 right-0 max-w-xs w-full bg-white dark:bg-gray-800 shadow-xl transform transition-transform duration-300 ease-in-out ${isOpen ? 'translate-x-0' : 'translate-x-full'}`}>
         <div className="h-full flex flex-col py-6 overflow-y-auto">
           <div className="px-4 flex items-center justify-between">
@@ -68,7 +62,7 @@ const ThemeCustomizer = ({ isDarkMode, toggleDarkMode }) => {
           </div>
 
           <div className="mt-6 px-4 space-y-6">
-            {/* Dark Mode Toggle */}
+
             <div>
               <h3 className="text-sm font-medium text-gray-900 dark:text-white mb-3">Mode</h3>
               <div className="flex items-center justify-between">
@@ -85,7 +79,7 @@ const ThemeCustomizer = ({ isDarkMode, toggleDarkMode }) => {
               </div>
             </div>
 
-            {/* Primary Color */}
+
             <div>
               <h3 className="text-sm font-medium text-gray-900 dark:text-white mb-3">Primary Color</h3>
               <div className="grid grid-cols-3 gap-3">
@@ -102,7 +96,7 @@ const ThemeCustomizer = ({ isDarkMode, toggleDarkMode }) => {
               </div>
             </div>
 
-            {/* Font Size */}
+
             <div>
               <h3 className="text-sm font-medium text-gray-900 dark:text-white mb-3">Font Size</h3>
               <div className="flex items-center space-x-4">
@@ -118,7 +112,7 @@ const ThemeCustomizer = ({ isDarkMode, toggleDarkMode }) => {
               </div>
             </div>
 
-            {/* Layout Density */}
+
             <div>
               <h3 className="text-sm font-medium text-gray-900 dark:text-white mb-3">Layout Density</h3>
               <div className="flex items-center space-x-4">
@@ -134,13 +128,13 @@ const ThemeCustomizer = ({ isDarkMode, toggleDarkMode }) => {
               </div>
             </div>
 
-            {/* Reset Button */}
+
             <div className="pt-4">
               <button
                 className="w-full flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-primary hover:bg-primary focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary"
                 onClick={() => {
                   handleColorChange('#3B82F6');
-                  // Reset other settings as needed
+
                 }}
               >
                 Reset to Default
