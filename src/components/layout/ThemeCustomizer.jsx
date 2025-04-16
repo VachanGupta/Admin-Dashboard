@@ -35,7 +35,7 @@ const ThemeCustomizer = ({ isDarkMode, toggleDarkMode }) => {
     b = Math.max(0, Math.min(255, b + percent));
     
     return `#${((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1)}`;
-    return `#${((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1)}`;
+    // return `#${((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1)}`;
   };
 
   return (
